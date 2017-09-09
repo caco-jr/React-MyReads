@@ -2,12 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Book = props => {
-
-    const propTypes = {
-        book: PropTypes.object.isRequired,
-        onMoveBook: PropTypes.func.isRequired
-    };
-
     const { title, authors, shelf } = props.book;
     const backgroundImage = props.book.imageLinks.smallThumbnail;
     console.log(title);
@@ -40,5 +34,10 @@ const Book = props => {
         </li>
     )
 }
+
+Book.propTypes = {
+    book: PropTypes.object.isRequired,
+    onMoveBook: PropTypes.func.isRequired
+};
 
 export default Book;

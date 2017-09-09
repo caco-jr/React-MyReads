@@ -30,8 +30,6 @@ class BookBox extends Component {
 
         return (
             <div className="list-books">
-                {console.log(this.props.book)}
-
                 <div className="list-books-title">
                     <h1>MyReads</h1>
                 </div>
