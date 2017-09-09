@@ -1,12 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import BookShelf from './components/BookShelf'
+import BookBox from './BookBox'
 import Search from './components/Search'
 
 const Main = () => (
     <main>
         <Switch>
-            <Route exact path="/" component={BookShelf} />
+            <Route exact path="/" component={BookBox} />
             <Route path="/search" component={Search} />
         </Switch>
     </main>
