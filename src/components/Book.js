@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { SHELVES } from '../utils/shelves'
 
 const Book = props => {
-    const { title, authors, shelf } = props.book;
+    const { title, authors, shelf, id } = props.book;
     const backgroundImage = props.book.imageLinks.smallThumbnail;
     console.log(title);
 
@@ -17,13 +19,17 @@ const Book = props => {
         <li>
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url( ${backgroundImage} )` }}></div>
+                    <Link to={`/book/${id}`}>
+                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url( ${backgroundImage} )` }}></div>
+                    </Link>
                     <div className="book-shelf-changer">
                         <select value={shelf} onChange={(event) => handleShelfChange(event.target.value)} >
                             <option value="none" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
+                            {
+                                SHELVES.map(
+                                    (shelf, index) => (<option value={shelf.flag} key={index} > {shelf.shelf} </option>)
+                                )
+                            }
                             <option value="none">None</option>
                         </select>
                     </div>

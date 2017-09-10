@@ -1,27 +1,13 @@
 import React from 'react'
 import Book from './Book'
 import PropTypes from 'prop-types'
+import { SHELVES } from '../utils/shelves'
 
 const BookShelf = props => {
-    const shelves = [
-        {
-            flag: "currentlyReading",
-            shelf: "Currently Reading"
-        },
-        {
-            flag: "wantToRead",
-            shelf: "Want To Read"
-        },
-        {
-            flag: "read",
-            shelf: "Read"
-        }
-    ];
-
     return (
         <div>
             {
-                shelves.map((shelf, index) => (
+                SHELVES.map((shelf, index) => (
                     <div key={index} className="bookshelf">
                         <h2 className="bookshelf-title"> {shelf.shelf} </h2>
                         <div className="bookshelf-books">
