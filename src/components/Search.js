@@ -47,7 +47,7 @@ class SearchBooks extends Component {
         }
     }
 
-    updateBook = (shelf, book) => {
+    updateBook = (book, shelf) => {
         BooksAPI.update(book, shelf);
         this.relocateBook(book);
     }
