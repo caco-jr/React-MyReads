@@ -9,9 +9,6 @@ const Book = props => {
     console.log(title);
 
     const handleShelfChange = (shelfChange) => {
-        const book = props.book;
-        const log = console.log(shelfChange, book);
-
         props.onMoveBook(props.book, shelfChange)
     }
 
