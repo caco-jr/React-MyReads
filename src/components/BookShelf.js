@@ -14,12 +14,12 @@ const BookShelf = props => (
                             {
                                 props.book
                                     .filter(
-                                    book => book.shelf === shelf.flag
+                                        book => book.shelf === shelf.flag
                                     )
                                     .map(
-                                    book => (
-                                        <Book key={book.id} book={book} onMoveBook={props.onMoveBook} />
-                                    )
+                                        book => (
+                                            <Book key={book.id} book={book} onMoveBook={props.onMoveBook} />
+                                        )
                                     )
                             }
                         </ol>
