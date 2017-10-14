@@ -12,18 +12,20 @@ class SearchBooks extends Component {
     }
 
     componentDidMount() {
-        BooksAPI.getAll().then((allBooks) => {
-            this.setState({ shelfBooks: allBooks });
-        });
+        BooksAPI.getAll()
+            .then(shelfBooks => this.setState({ shelfBooks }))
     }
 
-    relocateBook = (oldBook) => {
-        BooksAPI.get(oldBook.id).then((book) => {
-            this.state.shelfBooks.splice(this.state.shelfBooks.indexOf(oldBook), 1);
-            this.setState(state => ({
-                shelfBooks: state.shelfBooks.concat([book]),
-            }));
-        })
+    relocateBook = (oldBook, shelf) => {
+        let bookToUpdate = this.state.shelfBooks.filter(book => book.id === oldBook.id);
+
+        bookToUpdate.shelf = shelf;
+
+        this.setState(state => ({
+            shelfBooks: (
+                state.shelfBooks.filter(book => book.id !== oldBook.id).concat(bookToUpdate)
+            )
+        }))
     }
 
     handleChange = (event) => {
@@ -35,26 +37,23 @@ class SearchBooks extends Component {
 
     searchBook = (value) => {
         if (value) {
-            setTimeout(() => {
-                BooksAPI.search(value, 20).then((allBooks) => {
-                    if (!allBooks.error && value !== "") {
-                        this.setState({ books: allBooks });
-                    } else if (value === "") {
-                        this.setState({ books: [] });
-                    }
-                });
-            }, 0);
+            BooksAPI.search(value, 20).then((allBooks) => {
+                if (!allBooks.error && value !== "") {
+                    this.setState({ books: allBooks });
+                } else if (value === "") {
+                    this.setState({ books: [] });
+                }
+            });
         }
     }
 
     updateBook = (book, shelf) => {
         BooksAPI.update(book, shelf);
-        this.relocateBook(book);
+        this.relocateBook(book, shelf);
     }
 
     render() {
-        const books = this.state.books;
-        const shelfBooks = this.state.shelfBooks;
+        const { books, shelfBooks } = this.state;
         let BooksList = [];
 
         if (books.length > 0) {
