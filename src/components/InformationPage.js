@@ -30,7 +30,6 @@ class InformationPage extends Component {
 
         return (
             <div className="information-page container">
-                {console.log(this.state.book)}
                 <Link to="/" className="close-search">Close</Link>
 
                 <div className="row" >

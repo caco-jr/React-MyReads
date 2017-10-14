@@ -6,7 +6,6 @@ import { SHELVES } from '../utils/shelves'
 const Book = props => {
     const { title, authors, shelf, id } = props.book;
     const backgroundImage = props.book.imageLinks.smallThumbnail;
-    console.log(title);
 
     const handleShelfChange = (shelfChange) => {
         props.onMoveBook(props.book, shelfChange)
