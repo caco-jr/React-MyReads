@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import AllBooks from "./AllBooks"
 import * as BooksAPI from '../utils/BooksAPI';
 
-class SearchBooks extends Component {
+class SearchBooks extends PureComponent {
 
     state = {
         value: "",

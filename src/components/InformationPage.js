@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../utils/BooksAPI'
 
-class InformationPage extends Component {
+class InformationPage extends PureComponent {
     state = {
         book: [],
         image: '',
