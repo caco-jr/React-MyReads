@@ -7,19 +7,19 @@ const BookShelf = props => (
     <div>
         {
             SHELVES.map((shelf, index) => (
-                <div key={index} className="bookshelf">
+                <div key={index} id={shelf.flag} className="bookshelf">
                     <h2 className="bookshelf-title"> {shelf.shelf} </h2>
                     <div className="bookshelf-books">
                         <ol className="books-grid">
                             {
                                 props.book
                                     .filter(
-                                        book => book.shelf === shelf.flag
+                                    book => book.shelf === shelf.flag
                                     )
                                     .map(
-                                        book => (
-                                            <Book key={book.id} book={book} onMoveBook={props.onMoveBook} />
-                                        )
+                                    book => (
+                                        <Book key={book.id} book={book} onMoveBook={props.onMoveBook} />
+                                    )
                                     )
                             }
                         </ol>
