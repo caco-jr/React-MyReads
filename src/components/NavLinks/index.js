@@ -1,5 +1,5 @@
 import React from 'react';
-import Scrollchor from 'react-scrollchor';
+import { Link } from 'react-router-dom'
 import { SHELVES } from '../../utils/shelves'
 import './navLinks.css'
 import Sticky from '../Sticky'
@@ -15,9 +15,9 @@ const NavLinks = (props) => {
                 {
                     SHELVES.map(section => (
                         <li key={section.flag} className="section__list--links">
-                            <Scrollchor to={section.flag}>
+                            <Link to={{ hash: `#${section.flag}` }} onClick={e => document.getElementById(section.flag).scrollIntoView({ behavior: "smooth" })}>
                                 {section.shelf}
-                            </Scrollchor>
+                            </Link>
                         </li>
                     ))
                 }
