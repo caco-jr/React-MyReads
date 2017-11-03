@@ -24,7 +24,7 @@ This is the Library project for Udacity's React Fundamentals course.
 
 ## Backend Server
 
-The file [`BooksAPI.js`](src/BooksAPI.js) contains the methods that connect to API:
+The file [`BooksAPI.js`](src/BooksAPI.js) contains the methods that connect to backend API:
 
 * [`getAll`](#getall)
 * [`update`](#update)
