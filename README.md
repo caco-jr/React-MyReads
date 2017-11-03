@@ -4,7 +4,6 @@
 
 `npm install`
 
-`npm react-router-dom`
 
 ## Build and Run
 
