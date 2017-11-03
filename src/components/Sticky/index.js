@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './sticky.css'
 
 class Sticky extends React.Component {
@@ -44,10 +45,10 @@ class Sticky extends React.Component {
 }
 
 Sticky.propTypes = {
-    className: React.PropTypes.string,
-    enter: React.PropTypes.string,
-    exit: React.PropTypes.string,
-    children: React.PropTypes.node,
+    className: PropTypes.string,
+    enter: PropTypes.string,
+    exit: PropTypes.string,
+    children: PropTypes.node,
 };
 
 export default Sticky;
